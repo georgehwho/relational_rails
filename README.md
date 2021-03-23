@@ -1,5 +1,7 @@
 # Relational Rails
 
+![db schema picture](https://i.imgur.com/4rELQfh.png)
+
 ## Learning Goals
 - Design a one to many relationship using a schema designer
 - Write migrations to create tables with columns of varying data types and foreign keys.
