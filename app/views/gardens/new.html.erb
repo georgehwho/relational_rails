@@ -1,1 +1,13 @@
-<h1>This is the new page!!</h1>
+<h1>Register Garden</h1>
+
+<form action="/tasks" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>Name:</p>
+  <input type="text" name="garden[name]">
+  <p>Watered State:</p>
+  <input type="boolean" name="garden[watered]">
+  <p>Max Plant Capacity</p>
+  <input type="integer" name="garden[max_plant_capacity]">
+  <br><br>
+  <input type="submit">
+</form>
