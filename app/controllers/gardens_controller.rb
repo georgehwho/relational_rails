@@ -7,6 +7,18 @@ class GardensController < ApplicationController
   end
 
   def create
-    binding.pry
+    garden = Garden.new({
+      name: params[:garden][:name],
+      name: params[:garden][:watered],
+      name: params[:garden][:max_plant_capacity]
+      })
+
+    garden.save
+
+    redirect_to 'gardens'
+  end
+
+  def show
+    @garden = Garden.find(params[:id])
   end
 end
