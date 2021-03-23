@@ -1,6 +1,6 @@
 class GardensController < ApplicationController
   def index
-    @gardens = %w[1 2 3]
+    @gardens = Garden.all
   end
 
   def new
@@ -9,8 +9,8 @@ class GardensController < ApplicationController
   def create
     garden = Garden.new({
       name: params[:garden][:name],
-      name: params[:garden][:watered],
-      name: params[:garden][:max_plant_capacity]
+      watered: params[:garden][:watered],
+      max_plant_capacity: params[:garden][:max_plant_capacity]
       })
 
     garden.save
