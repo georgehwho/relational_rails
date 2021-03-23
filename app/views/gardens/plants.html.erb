@@ -1,7 +1,11 @@
-<% @plants.each do |plant| %>
-  <p>name: <%= plant.name %></p>
-  <p>in_season: <%= plant.in_season %></p>
-  <p>age: <%= plant.age %></p>
-  <p>id: <%= plant.id %></p>
-  <p>garden_id: <%= plant.garden_id %></p>
+<% if @garden_plants.empty? %>
+  <p>There are no plants!</p>
+<% else %>
+  <% @garden_plants.each do |plant| %>
+    <p>name: <%= plant.name %></p>
+    <p>in_season: <%= plant.in_season %></p>
+    <p>age: <%= plant.age %></p>
+    <p>id: <%= plant.id %></p>
+    <p>garden_id: <%= plant.garden_id %></p>
+  <% end %>
 <% end %>

@@ -24,6 +24,6 @@ class GardensController < ApplicationController
 
   def plants
     # require 'pry'; binding.pry
-    @plants = Plant.where(garden_id: params[:id])
+    @garden_plants = Plant.where(garden_id: params[:id])
   end
 end
