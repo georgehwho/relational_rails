@@ -4,6 +4,9 @@ class GardensController < ApplicationController
   end
 
   def new
+  end
 
+  def create
+    binding.pry
   end
 end

@@ -3,4 +3,5 @@ Rails.application.routes.draw do
 
   get '/gardens', to: 'gardens#index'
   get '/gardens/new', to: 'gardens#new'
+  post '/gardens', to: 'garden#create'
 end
