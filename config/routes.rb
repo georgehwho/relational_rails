@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   get '/gardens', to: 'gardens#index'
   get '/gardens/new', to: 'gardens#new'
   post '/gardens', to: 'gardens#create'
-  get '/garden/:id', to: 'gardens#show'
+  get '/gardens/:id', to: 'gardens#show'
 end
