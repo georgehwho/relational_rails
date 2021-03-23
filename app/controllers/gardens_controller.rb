@@ -21,4 +21,9 @@ class GardensController < ApplicationController
   def show
     @garden = Garden.find(params[:id])
   end
+
+  def plants
+    # require 'pry'; binding.pry
+    @plants = Plant.where(garden_id: params[:id])
+  end
 end
