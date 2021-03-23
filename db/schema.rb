@@ -32,4 +32,5 @@ ActiveRecord::Schema.define(version: 2021_03_23_133825) do
     t.integer "garden_id"
   end
 
+  add_foreign_key "plants", "gardens"
 end
