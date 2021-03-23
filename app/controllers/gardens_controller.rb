@@ -15,7 +15,7 @@ class GardensController < ApplicationController
 
     garden.save
 
-    redirect_to 'gardens'
+    redirect_to '/gardens'
   end
 
   def show
