@@ -20,6 +20,7 @@ class GardensController < ApplicationController
 
   def show
     @garden = Garden.find(params[:id])
+    @garden_plants = Plant.where(garden_id: params[:id])
   end
 
   def plants
