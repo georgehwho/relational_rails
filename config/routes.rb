@@ -8,4 +8,14 @@ Rails.application.routes.draw do
 
   get '/video_games', to: 'video_games#index'
   get '/video_games/:id', to: 'video_games#show'
+
+  get '/gardens', to: 'gardens#index'
+  get '/gardens/new', to: 'gardens#new'
+  post '/gardens', to: 'gardens#create'
+  get '/gardens/:id', to: 'gardens#show'
+  get '/gardens/:id/plants', to: 'gardens#plants'
+
+  get '/plants', to: 'plants#index'
+  get '/plants/:id', to: 'plants#show'
+
 end
