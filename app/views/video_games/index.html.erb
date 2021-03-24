@@ -1,0 +1,7 @@
+<h1>All Video Games</h1>
+
+<% @video_games.each do |game| %>
+  <h2><%= game.name %></h2>
+  <p>Max Player Capacity: <%= game.max_players %></p>
+  <p>Server is live?: <%= game.is_live %></p>
+<% end %>
