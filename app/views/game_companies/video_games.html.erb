@@ -1,0 +1,8 @@
+<p>this exists</p>
+<% @video_games.each do |game| %>
+  <p>name: <%= game.name %></p>
+  <p>is_live: <%= game.is_live %></p>
+  <p>max_players: <%= game.max_players %></p>
+  <p>id: <%= game.id %></p>
+  <p>game_company_id: <%= game.game_company_id %></p>
+<% end %>
