@@ -1,7 +1,7 @@
 <h1>All Game Companies</h1>
 
-<% @game_companies.each do |company| %>
-  <h2><%= company.title %></h2>
+<% @game_companies.sort_by(&:created_at).each do |company| %>
+  <h2><%= company.title %> </h2>
   <p>Profitable?: <%= company.profitable %></p>
   <p>Number of Employees: <%= company.employees %></p>
 <% end %>
