@@ -1,5 +1,5 @@
 <h1>These are the Gardens</h1>
 <h3>Click <a href="/gardens/new">here</a> to create a garden</h3>
-<% @gardens.sort_by(&:created_at).each do |garden| %>
+<% @gardens.sort_by(&:created_at).reverse.each do |garden| %>
   <h3><a href="/gardens/<%= garden.id %>"><%= garden.name %></a></h3>
 <% end %>
