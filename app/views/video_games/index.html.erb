@@ -2,6 +2,15 @@
 <br>
 <% @video_games.each do |game| %>
   <h2><%= game.name %></h2>
-  <p>Max Player Capacity: <%= game.max_players %></p>
-  <p>Server is live?: <%= game.is_live %></p>
+  <p>
+    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+      Details
+    </a>
+  </p>
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+      <p>Max Player Capacity: <%= game.max_players %></p>
+      <p>Server is live?: <%= game.is_live %></p>
+    </div>
+  </div>
 <% end %>
