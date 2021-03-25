@@ -2,5 +2,5 @@
 <br>
 
 <% @game_companies.sort_by(&:created_at).reverse!.each do |company| %>
-  <h1> <a href="/game_companies/<%= company.id %>"><%= company.title %></a>: created <%= time_ago_in_words(company.created_at) %> ago </h1>
+  <h2> <a href="/game_companies/<%= company.id %>"><%= company.title %></a>: created <%= time_ago_in_words(company.created_at) %> ago </h2>
 <% end %>
