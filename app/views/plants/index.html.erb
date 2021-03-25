@@ -1,5 +1,4 @@
 <h1>These are the Plants</h1>
-<h3>Click <a href="/plants/new">here</a> to create a plant</h3>
 <h3>Listed below are all of the plants and their attributes:</h3>
 <% @plants.each do |plant| %>
   <h3><a href="/plants/<%= plant.id %>"><%= plant.name %></a></h3>

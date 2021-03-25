@@ -16,17 +16,8 @@
     <%= javascript_include_tag 'application' %>
   </head>
   <body>
-    <nav class="navbar navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Relational Rails</a>
-        <ul class="navbar-nav mr-auto">
-          <li><a href="#">Home</a></li>
-          <li><a href="/gardens/">Gardens</a></li>
-          <li><a href="/plants/">Plants</a></li>
-          <li><a href="#">Page 3</a></li>
-        </ul>
-      </div>
-    </nav>
+    <%= render 'layouts/header' %>
+
     <div class="container">
       <%= yield %>
     </div>
