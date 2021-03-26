@@ -14,9 +14,9 @@ RSpec.describe "game_companies show page", type: :feature do
     visit "/game_companies/#{game_company.id}"
 
     expect(page).to have_content(game_company.title)
-    expect(page).to have_content(game_company.profitable)
-    expect(page).to have_content(game_company.employees)
-    expect(page).to have_content(game_company.video_games.count)
+    expect(page).to have_content("Profitable?: #{game_company.profitable}")
+    expect(page).to have_content("Number of Employees: #{game_company.employees}")
+    expect(page).to have_content("Games Under this Company: #{game_company.video_games.count}")
   end
 
   it "can redirect to children from selected game company" do
