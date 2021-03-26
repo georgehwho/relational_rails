@@ -1,8 +1,21 @@
-<p>this exists</p>
+<% if @video_games.empty? %>
+  <h1>There are no video games for this company!</h1>
+<% end %>
+
 <% @video_games.each do |game| %>
-  <p>name: <%= game.name %></p>
-  <p>is_live: <%= game.is_live %></p>
-  <p>max_players: <%= game.max_players %></p>
-  <p>id: <%= game.id %></p>
-  <p>game_company_id: <%= game.game_company_id %></p>
+<h1>Name: <%= game.name %></h1>
+<p>
+  <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Details
+  </a>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+
+    <p>is_live: <%= game.is_live %></p>
+    <p>max_players: <%= game.max_players %></p>
+    <p>id: <%= game.id %></p>
+    <p>game_company_id: <%= game.game_company_id %></p>
+  </div>
+</div>
 <% end %>
