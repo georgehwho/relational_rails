@@ -1,4 +1,21 @@
+<div class="alert alert-success" role="alert">
+  <p><a href="/game_companies/<%= @game_company.id %>/video_games">This Company's Video Games:</a></p>
+</div>
+
+<br>
+
 <h1><%= @game_company.title %></h1>
-<p>Profitable?: <%= @game_company.profitable %></p>
-<p>Number of Employees: <%= @game_company.employees %></p>
-<p>Games Under this Company: <%= @game_company_games.size %></p>
+
+
+<p>
+  <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Details
+  </a>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    <p>Profitable?: <%= @game_company.profitable %></p>
+    <p>Number of Employees: <%= @game_company.employees %></p>
+    <p>Games Under this Company: <%= @game_company_games.size %></p>
+  </div>
+</div>
