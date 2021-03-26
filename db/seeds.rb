@@ -1,7 +1,11 @@
 GameCompany.destroy_all
+GameCompany.reset_pk_sequence
 VideoGame.destroy_all
+VideoGame.reset_pk_sequence
 Garden.destroy_all
+Garden.reset_pk_sequence
 Plant.destroy_all
+Plant.reset_pk_sequence
 
 bethesda = GameCompany.create!(title: "Bethesda", profitable: true, employees: 60000)
 small_indie_studio = GameCompany.create!(title: "Small Indie Studio", profitable: false, employees: 25)
