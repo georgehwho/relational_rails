@@ -17,7 +17,14 @@ class PlantsController < ApplicationController
   end
 
   def edit
+    @plant = Plant.find(params[:id])
+  end
 
+  def update
+    plant = Plant.find(params[:id])
+    plant.update(plant_params)
+
+    redirect_to "/plants/#{ params[:id] }"
   end
 
   private

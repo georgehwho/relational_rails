@@ -22,4 +22,5 @@ Rails.application.routes.draw do
   post '/plants', to: 'plants#create'
   get '/plants/:id', to: 'plants#show'
   get '/plants/:id/edit', to: 'plants#edit'
+  patch '/plants/:id', to: 'plants#update'
 end
