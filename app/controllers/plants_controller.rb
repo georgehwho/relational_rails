@@ -16,6 +16,10 @@ class PlantsController < ApplicationController
     redirect_to '/plants'
   end
 
+  def edit
+
+  end
+
   private
 
   def plant_params
