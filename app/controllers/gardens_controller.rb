@@ -24,17 +24,15 @@ class GardensController < ApplicationController
   end
 
   def plants
-    # require 'pry'; binding.pry
+    @garden = Garden.find(params[:id])
     @garden_plants = Plant.where(garden_id: params[:id])
   end
 
   def edit
     @garden = Garden.find(params[:id])
-    # require 'pry'; binding.pry
   end
 
   def update
-    # require 'pry'; binding.pry
     garden = Garden.find(params[:id])
     garden.update(name: params[:garden][:name],
                   watered: params[:garden][:watered],

@@ -10,10 +10,18 @@ class PlantsController < ApplicationController
   def new
   end
 
+  def new_in
+  end
+
   def create
     plant = Plant.create(plant_params)
 
     redirect_to '/plants'
+  end
+
+  def create_in
+    plant = Plant.create(plant_params)
+    redirect_to "/gardens/#{ params[:id] }/plants"
   end
 
   def edit
