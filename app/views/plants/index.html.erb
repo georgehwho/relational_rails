@@ -1,10 +1,30 @@
 <h1>These are the Plants</h1>
 <h3>Listed below are all of the plants and their attributes:</h3>
-<% @plants.each do |plant| %>
-  <h3><a href="/plants/<%= plant.id %>"><%= plant.name %></a></h3>
-  <p>name: <%= plant.name %></p>
-  <p>in_season: <%= plant.in_season %></p>
-  <p>age: <%= plant.age %></p>
-  <p>id: <%= plant.id %></p>
-  <p>garden_id: <%= plant.garden_id %></p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">In Season?</th>
+      <th scope="col">Age</th>
+      <th scope="col">Garden ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @plants.each do |plant| %>
+      <tr>
+        <th scope="row"><%= plant.id %></th>
+        <td><a href="/plants/<%= plant.id %>"><%= plant.name %></a></td>
+        <td><%= plant.in_season %></td>
+        <td><%= plant.age %></td>
+        <td><%= plant.garden_id %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if @garden %>
+<a href="/gardens/<%= @garden.id %>/plants/new">add plant</a>
+<br>
+<a href="/gardens/<%= @garden.id %>/plants/">sort by alphabet</a>
 <% end %>

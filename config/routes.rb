@@ -13,10 +13,17 @@ Rails.application.routes.draw do
   get '/gardens/new', to: 'gardens#new'
   post '/gardens', to: 'gardens#create'
   get '/gardens/:id', to: 'gardens#show'
-  get '/gardens/:id/plants', to: 'gardens#plants'
+  get '/gardens/:garden_id/plants', to: 'plants#index'
+  get '/gardens/:id/edit', to: 'gardens#edit'
+  patch '/gardens/:id', to: 'gardens#update'
+
+  get '/gardens/:garden_id/plants/new', to: 'plants#new'
+  post '/gardens/:garden_id/plants', to: 'plants#create'
 
   get '/plants', to: 'plants#index'
   get '/plants/new', to: 'plants#new'
+  post '/plants', to: 'plants#create'
   get '/plants/:id', to: 'plants#show'
-
+  get '/plants/:id/edit', to: 'plants#edit'
+  patch '/plants/:id', to: 'plants#update'
 end
