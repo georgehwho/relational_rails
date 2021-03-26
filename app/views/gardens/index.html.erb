@@ -1,4 +1,20 @@
 <h1>These are the Gardens</h1>
-<% @gardens.sort_by(&:created_at).reverse.each do |garden| %>
-  <h3><a href="/gardens/<%= garden.id %>"><%= garden.name %></a></h3>
-<% end %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Created At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @gardens.sort_by(&:created_at).reverse.each do |garden| %>
+      <tr>
+        <th scope="row"><%= garden.id %></th>
+        <td><a href="/gardens/<%= garden.id %>"><%= garden.name %></a></td>
+        <td><%= garden.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
