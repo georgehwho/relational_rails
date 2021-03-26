@@ -1,0 +1,15 @@
+<h1>Edit an Garden</h1>
+
+<form action="/gardens/<%= @garden.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <p>Name:</p>
+  <input type="text" name="garden[name]" value="<%= @garden.name %>">
+  <br><br>
+  <input type="checkbox" name="garden[watered]" value="true">
+  <label for="garden[watered]">Watered?</label>
+  <p>Max Plant Capacity</p>
+  <input type="number" name="garden[max_plant_capacity]" value="<%= @garden.max_plant_capacity %>">
+  <br><br>
+  <input type="submit">
+</form>
