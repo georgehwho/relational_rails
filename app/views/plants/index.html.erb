@@ -22,3 +22,7 @@
     <% end %>
   </tbody>
 </table>
+
+<% if @garden %>
+<a href="/gardens/<%= @garden.id %>/plants/new">add plant</a>
+<% end %>

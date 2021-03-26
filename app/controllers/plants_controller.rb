@@ -1,6 +1,11 @@
 class PlantsController < ApplicationController
   def index
-    @plants = Plant.where(in_season: true)
+    if params[:garden_id]
+      @garden = Garden.find(params[:garden_id])
+      @plants = @garden.plants
+    else
+      @plants = Plant.where(in_season: true)
+    end
   end
 
   def show
@@ -8,20 +13,18 @@ class PlantsController < ApplicationController
   end
 
   def new
-  end
-
-  def new_in
+    @garden = Garden.find(params[:garden_id]) if params[:garden_id]
   end
 
   def create
-    plant = Plant.create(plant_params)
-
-    redirect_to '/plants'
-  end
-
-  def create_in
-    plant = Plant.create(plant_params)
-    redirect_to "/gardens/#{ params[:id] }/plants"
+    if params[:garden_id].present?
+      garden = Garden.find(params[:garden_id])
+      garden.plants.create(plant_params)
+      redirect_to "/gardens/#{ params[:garden_id] }/plants"
+    else
+      plant = Plant.create(plant_params)
+      redirect_to '/plants'
+    end
   end
 
   def edit
