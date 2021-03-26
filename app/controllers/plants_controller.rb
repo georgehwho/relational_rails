@@ -1,6 +1,6 @@
 class PlantsController < ApplicationController
   def index
-    @plants = Plant.all
+    @plants = Plant.where(in_season: true)
   end
 
   def show
