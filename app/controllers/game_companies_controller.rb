@@ -25,4 +25,8 @@ class GameCompaniesController < ApplicationController
 
   redirect_to '/game_companies'
   end
+
+  def edit
+
+  end
 end
