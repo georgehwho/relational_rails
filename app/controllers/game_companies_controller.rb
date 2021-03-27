@@ -11,4 +11,18 @@ class GameCompaniesController < ApplicationController
   def video_games
     @video_games = VideoGame.where(game_company_id: params[:id])
   end
+
+  def new
+  end
+
+  def create
+    game_company = GameCompany.new({
+      title: params[:game_company][:title],
+      employees: params[:game_company][:employees],
+      profitable: params[:game_company][:profitable]
+      })
+    game_company.save
+
+  redirect_to '/game_companies'
+  end
 end
