@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/game_companies', to: 'game_companies#index'
   get '/game_companies/new', to: 'game_companies#new'
   post '/game_companies', to: 'game_companies#create'
+  get "/game_companies/:id/edit", to: 'game_companies#edit'
   get '/game_companies/:id', to: 'game_companies#show'
   get '/game_companies/:id/video_games', to: 'game_companies#video_games'
 
