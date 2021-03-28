@@ -9,6 +9,7 @@ class GameCompaniesController < ApplicationController
   end
 
   def video_games
+    @game_company = GameCompany.find(params[:id])
     @video_games = VideoGame.where(game_company_id: params[:id])
   end
 
