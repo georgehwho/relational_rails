@@ -21,7 +21,7 @@ class GameCompaniesController < ApplicationController
       employees: params[:game_company][:employees],
       profitable: params[:game_company][:profitable]
       })
-    game_company.save
+    create_game_company.save
 
   redirect_to '/game_companies'
   end
