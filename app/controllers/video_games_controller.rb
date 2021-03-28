@@ -6,4 +6,22 @@ class VideoGamesController < ApplicationController
   def show
     @video_game = VideoGame.find(params[:id])
   end
+
+  def new
+    @game_company = GameCompany.find(params[:id])
+  end
+
+  def create
+    game_company = GameCompany.find(params[:id])
+    new_video_game = game_company.video_games.new(
+      {
+      name: params[:video_game][:name],
+      max_players: params[:video_game][:max_players],
+      is_live: params[:video_game][:is_live]
+
+      })
+      new_video_game.save
+
+      redirect_to "/game_companies/#{game_company.id}/video_games"
+  end
 end
