@@ -57,6 +57,5 @@ RSpec.describe "game_companies video_games page", type: :feature do
     expect(page).to have_link("Add New Video Game to this Company")
     click_link "Add New Video Game to this Company"
     expect(current_path).to eq("/game_companies/#{game_company.id}/video_games/new")
-
   end
 end
