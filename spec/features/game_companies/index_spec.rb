@@ -53,7 +53,7 @@ RSpec.describe "game_companies index page", type: :feature do
     expect(page).to have_content("created #{time_ago_in_words(game_company.created_at)} ago")
   end
 
-  it "has a button to click and redirect to new page" do
+  it "has a button to click and redirect to a game_company creation page" do
     game_company = GameCompany.create!(title: "Bethesda", profitable: true, employees: 60000)
     video_game_1 = VideoGame.create!(name:        "GTA",
                                     max_players: 500000,
