@@ -29,11 +29,11 @@ RSpec.describe "game_companies edit page", type: :feature do
                                     max_players: 2300000,
                                     is_live:     false,
                                     game_company_id: game_company.id)
-    visit "/game_companies/new"
+    visit "/game_companies/#{game_company.id}/edit"
 
-    expect(current_path).to eq('/game_companies/edit')
+    expect(current_path).to eq("/game_companies/#{game_company.id}/edit")
     expect(page).to have_button("Submit")
     click_button "Submit"
-    # expect(current_path).to eq('/game_companies/')
+    expect(current_path).to eq("/game_companies/#{game_company.id}/")
   end
 end
