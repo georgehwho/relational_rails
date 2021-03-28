@@ -31,7 +31,6 @@ class GameCompaniesController < ApplicationController
   end
 
   def update
-    # binding.pry
     updated_game_company = GameCompany.find(params[:id])
     updated_game_company.update(title: params[:game_company][:title],
                   employees: params[:game_company][:employees],
