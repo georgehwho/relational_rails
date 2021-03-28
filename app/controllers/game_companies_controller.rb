@@ -16,7 +16,7 @@ class GameCompaniesController < ApplicationController
   end
 
   def create
-    game_company = GameCompany.new({
+    create_game_company = GameCompany.new({
       title: params[:game_company][:title],
       employees: params[:game_company][:employees],
       profitable: params[:game_company][:profitable]
@@ -27,6 +27,16 @@ class GameCompaniesController < ApplicationController
   end
 
   def edit
+    @game_company = GameCompany.find(params[:id])
+  end
 
+  def update
+    # binding.pry
+    updated_game_company = GameCompany.find(params[:id])
+    updated_game_company.update(title: params[:game_company][:title],
+                  employees: params[:game_company][:employees],
+                  profitable: params[:game_company][:profitable])
+
+    redirect_to "/game_companies/#{params[:id]}/"
   end
 end

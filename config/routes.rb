@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "/game_companies/:id/edit", to: 'game_companies#edit'
   get '/game_companies/:id', to: 'game_companies#show'
   get '/game_companies/:id/video_games', to: 'game_companies#video_games'
+  patch '/game_companies/:id', to: 'game_companies#update'
 
   get '/video_games', to: 'video_games#index'
   get '/video_games/:id', to: 'video_games#show'
