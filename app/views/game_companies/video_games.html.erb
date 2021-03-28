@@ -2,7 +2,7 @@
   <h1>There are no video games for this company!</h1>
 <% end %>
 
-<h1> <a class="btn btn-primary" name="New" id="New" href="/game_companies/<%= @game_company.id %>/video_games/new"" role="button">Add New Video Game to this Company
+<h1> <a class="btn btn-primary" name="New" id="New" href="/game_companies/<%= @game_company.id %>/video_games/new" role="button">Add New Video Game to this Company </a>
   </h1>
 <% @video_games.each do |game| %>
 <h1>Name: <%= game.name %></h1>
