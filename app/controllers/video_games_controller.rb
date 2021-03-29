@@ -1,6 +1,6 @@
 class VideoGamesController < ApplicationController
   def index
-    @video_games = VideoGame.all
+    @video_games = VideoGame.where(is_live: "true")
   end
 
   def show
