@@ -34,10 +34,4 @@ class GameCompaniesController < ApplicationController
 
     redirect_to "/game_companies/#{params[:id]}/"
   end
-
-# binding.pry
-# GameCompany.video_games(params[:bar])
-
-
-
 end
