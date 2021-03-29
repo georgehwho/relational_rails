@@ -5,4 +5,4 @@
 <p><%= @garden.max_plant_capacity %></p>
 <p>Number of plants: <%= @garden.plants.size %></p>
 <br>
-<p><a href="/gardens/<%= @garden.id %>/edit">edit</a></p>
+<%= link_to  "Edit", "/gardens/#{@garden.id}/edit" %>

@@ -1,24 +1,5 @@
 <h1>Edit <%= @garden.name %></h1>
 
-<%= form_with url: "/gardens/#{@garden.id}", method: :patch, local: true do |f| %>
-  <ul>
-  <% @garden.errors.full_messages.each do |error| %>
-    <li><%= error %></li>
-  <% end %>
-  </ul>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :watered %><br />
-    <%= f.check_box :watered %>
-  </p>
-  <p>
-    <%= f.label :max_plant_capacity %><br />
-    <%= f.number_field :max_plant_capacity %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<%= render partial: 'form', locals: {
+                                        path: "/gardens/#{@garden.id}",
+                                        method: "patch"} %>
