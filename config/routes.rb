@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   get '/video_games', to: 'video_games#index'
   get '/video_games/:id', to: 'video_games#show'
+  get '/video_games/:id/edit', to: 'video_games#edit'
   post '/game_companies/:id/video_games', to: 'video_games#create'
 
   get '/gardens', to: 'gardens#index'
