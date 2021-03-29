@@ -24,4 +24,17 @@ class VideoGamesController < ApplicationController
 
       redirect_to "/game_companies/#{game_company.id}/video_games"
   end
+
+  def edit
+    @video_game = VideoGame.find(params[:id])
+  end
+
+  def update
+    updated_video_game = VideoGame.find(params[:id])
+    updated_video_game.update(name: params[:video_game][:name],
+                  max_players: params[:video_game][:max_players],
+                  is_live: params[:video_game][:is_live])
+
+    redirect_to "/video_games/#{params[:id]}"
+  end
 end
