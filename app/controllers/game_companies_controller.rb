@@ -8,11 +8,6 @@ class GameCompaniesController < ApplicationController
     @game_company_games = VideoGame.where(game_company_id: params[:id])
   end
 
-  def video_games
-    @game_company = GameCompany.find(params[:id])
-    @video_games = VideoGame.where(game_company_id: params[:id])
-  end
-
   def new
   end
 
@@ -39,4 +34,10 @@ class GameCompaniesController < ApplicationController
 
     redirect_to "/game_companies/#{params[:id]}/"
   end
+
+# binding.pry
+# GameCompany.video_games(params[:bar])
+
+
+
 end

@@ -1,6 +1,11 @@
 class VideoGamesController < ApplicationController
   def index
-    @video_games = VideoGame.where(is_live: "true")
+    if params[:id]
+      @game_company = GameCompany.find(params[:id])
+      @video_games = @game_company.video_games
+    else
+      @video_games = VideoGame.where(is_live: true)
+    end
   end
 
   def show

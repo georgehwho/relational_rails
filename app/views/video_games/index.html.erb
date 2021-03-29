@@ -1,4 +1,9 @@
-<h1>All Video Games</h1>
+<% if @video_games.empty? %>
+  <h1>There are no video games for this company!</h1>
+  <% else %>
+  <h1>All Video Games</h1>
+<% end %>
+
 <br>
 <% @video_games.each do |game| %>
   <h2><%= game.name %></h2>
