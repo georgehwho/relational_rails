@@ -14,7 +14,7 @@
     <% @plants.each do |plant| %>
       <tr>
         <th scope="row"><%= plant.id %></th>
-        <td><%= link_to plant.name, "/plants/#{plant.id}" %></td>
+        <td><%= link_to plant.name, "/plants/#{plant.id}" %> <%= link_to "Edit", "/plants/#{plant.id}/edit" %></td>
         <td><%= plant.in_season %></td>
         <td><%= plant.age %></td>
         <td><%= plant.garden_id %></td>
