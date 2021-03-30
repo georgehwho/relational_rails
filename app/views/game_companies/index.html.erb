@@ -3,7 +3,8 @@
 
 <% @game_companies.sort_by(&:created_at).reverse!.each do |company| %>
   <h2>
+    <a class="btn btn-warning" name="Edit" id="Edit" href="/game_companies/<%= company.id %>/edit" role="button">Edit</a>
     <a href="/game_companies/<%= company.id %>"><%= company.title %></a>
-    : created <%= time_ago_in_words(company.created_at) %> ago 
+    : created <%= time_ago_in_words(company.created_at) %> ago
   </h2>
 <% end %>
