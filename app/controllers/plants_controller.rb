@@ -1,5 +1,5 @@
 class PlantsController < ApplicationController
-  before_action :set_plant, only: [:show, :edit, :update]
+  before_action :set_plant, only: [:show, :edit, :update, :destroy]
 
   def index
     if params[:garden_id]
@@ -35,6 +35,12 @@ class PlantsController < ApplicationController
     @plant.update(plant_params)
 
     redirect_to "/plants/#{ params[:id] }"
+  end
+
+  def destroy
+    @plant.destroy
+
+    redirect_to '/plants'
   end
 
   private
