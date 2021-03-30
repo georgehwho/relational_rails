@@ -5,6 +5,9 @@
 <% end %>
 
 <br>
+
+
+
 <% @video_games.each do |game| %>
   <h2><%= game.name %></h2>
   <p>
@@ -19,3 +22,10 @@
     </div>
   </div>
 <% end %>
+
+<input name="alphabetize" type="hidden" value="false" />
+
+
+<div class = "btn btn-secondary btn-sm">
+<%= link_to "alphabetize", :order => true %>
+</div>

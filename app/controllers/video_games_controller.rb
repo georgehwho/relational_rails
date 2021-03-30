@@ -3,6 +3,11 @@ class VideoGamesController < ApplicationController
     if params[:id]
       @game_company = GameCompany.find(params[:id])
       @video_games = @game_company.video_games
+      if params[:order] == "true"
+        @video_games = @game_company.video_games.order('LOWER(name)')
+      else
+        @video_games = @game_company.video_games
+      end
     else
       @video_games = VideoGame.where(is_live: true)
     end
