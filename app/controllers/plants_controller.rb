@@ -14,11 +14,11 @@ class PlantsController < ApplicationController
   end
 
   def new
-    @garden = Garden.find(params[:garden_id]) if params[:garden_id]
+    @garden = Garden.find(params[:garden_url_id]) if params[:garden_url_id]
   end
 
   def create
-    if params[:garden_id].present?
+    if params[:garden_url_id].present?
       garden = Garden.find(params[:garden_id])
       garden.plants.create(plant_params)
       redirect_to "/gardens/#{ params[:garden_id] }/plants"
