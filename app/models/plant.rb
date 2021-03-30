@@ -1,7 +1,5 @@
 class Plant < ApplicationRecord
-  belongs_to :garden
+  validates_presence_of :name, :age, :in_season
 
-  def sort_alphabet
-    Plant.sort_by(&:name)
-  end
+  belongs_to :garden
 end
