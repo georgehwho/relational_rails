@@ -4,7 +4,7 @@ class PlantsController < ApplicationController
   def index
     if params[:garden_id]
       @garden = Garden.find(params[:garden_id])
-      params[:sorted] == "true" ? @plants = @garden.plants.sort_by(&:name) : @plants = @garden.plants
+      params[:sorted] == "true" ? @plants = @garden.plants.order('LOWER(name)') : @plants = @garden.plants
     else
       @plants = Plant.where(in_season: true)
     end
