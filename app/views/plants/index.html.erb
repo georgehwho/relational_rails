@@ -26,5 +26,5 @@
 <% if @garden %>
 <%= link_to "Add Plant", "/gardens/#{@garden.id}/plants/new" %>
 <br>
-<%= link_to "Sort By Alphabet", "/gardens/#{@garden.id}/plants/new" %>
+<%= link_to "Sort By Alphabet", :sorted => true %>
 <% end %>
