@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get '/gardens/:garden_id/plants', to: 'plants#index'
   get '/gardens/:id/edit', to: 'gardens#edit'
   patch '/gardens/:id', to: 'gardens#update'
+  delete '/gardens/:id', to: 'gardens#destroy'
 
   get '/gardens/:garden_url_id/plants/new', to: 'plants#new'
   post '/gardens/:garden_url_id/plants', to: 'plants#create'
