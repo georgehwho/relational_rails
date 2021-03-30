@@ -1,4 +1,4 @@
-<p><a href="/gardens/<%= @garden.id %>/plants">the children</a></p>
+<%= link_to  "The Children", "/gardens/#{@garden.id}/plants" %>
 <br>
 <p><%= @garden.name %></p>
 <p><%= @garden.watered %></p>
