@@ -85,6 +85,6 @@ RSpec.describe "game_companies index page", type: :feature do
 
     expect(current_path).to eq('/game_companies')
     first(:link, 'Edit').click
-    # expect(current_path).to eq("/game_companies/#{game_company.id}/edit")
+    expect(current_path).to eq("/game_companies/#{game_company.id}/edit")
   end
 end
