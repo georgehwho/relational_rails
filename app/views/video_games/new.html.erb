@@ -1,0 +1,20 @@
+<h2> Add Video Game to <%= @game_company.title =%> </h2>
+<form action="/game_companies/<%= @game_company.id %>/video_games" method="post">
+
+   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+   <input name="video_game[is_live]" type="hidden" value="false" />
+
+  <div class="mb-3">
+    <label for="name" class="form-label">Video Game Name</label>
+    <input type="text" name="video_game[name]" class="form-control" id="name" required>
+
+
+    <label for="max players" class="form-label">Max Number of Players</label>
+    <input type="number" name="video_game[max_players]" class="form-control" id="max players" required>
+
+
+    <input type="checkbox" name="video_game[is_live]" class="form-check-input" id="boolean checkbox" value="true">
+    <label for="checkbox" class="form-check-label">Is Live?</label>
+  </div>
+   <button type="submit" class="btn btn-primary">Create Video Game</button>
+</form>

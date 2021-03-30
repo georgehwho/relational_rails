@@ -1,5 +1,20 @@
-<h1>All Video Games</h1>
+<% if @video_games.empty? %>
+  <h1>There are no video games for this company!</h1>
+  <h1> <a class="btn btn-success" name="New" id="New" href="/game_companies/<%= @game_company.id %>/video_games/new" role="button">Add New Video Game to this Company </a>
+  </h1>
+  <% elsif @game_company %>
+
+  <h1>  <%= @game_company.title %> Video Games:</h1>
+  <h1> <a class="btn btn-success" name="New" id="New" href="/game_companies/<%= @game_company.id %>/video_games/new" role="button">Add New Video Game to this Company </a>
+  </h1>
+  <% else %>
+  <h1>All Video Games</h1>
+<% end %>
+
 <br>
+
+
+
 <% @video_games.each do |game| %>
   <h2><%= game.name %></h2>
   <p>
@@ -14,3 +29,10 @@
     </div>
   </div>
 <% end %>
+
+<input name="alphabetize" type="hidden" value="false" />
+
+
+<div class = "btn btn-secondary btn-sm">
+<%= link_to "alphabetize", :order => true %>
+</div>
