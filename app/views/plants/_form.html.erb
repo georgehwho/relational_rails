@@ -1,0 +1,21 @@
+<%= form_with url: path, method: method, local: true do |f| %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name, value: name %>
+  </p>
+  <p>
+    <%= f.label :in_season %><br />
+    <%= f.check_box :in_season, value: in_season %>
+  </p>
+  <p>
+    <%= f.label :age %><br />
+    <%= f.number_field :age, value: age %>
+  </p>
+  <p>
+    <%= f.label :garden_id %><br />
+    <%= f.number_field :garden_id, value: garden_id %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

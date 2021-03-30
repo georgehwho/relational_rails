@@ -1,39 +1,38 @@
 class PlantsController < ApplicationController
+  before_action :set_plant, only: [:show, :edit, :update]
+
   def index
     if params[:garden_id]
       @garden = Garden.find(params[:garden_id])
-      @plants = @garden.plants
+      params[:sorted] == "true" ? @plants = @garden.plants.order('LOWER(name)') : @plants = @garden.plants
     else
       @plants = Plant.where(in_season: true)
     end
   end
 
   def show
-    @plant = Plant.find(params[:id])
   end
 
   def new
-    @garden = Garden.find(params[:garden_id]) if params[:garden_id]
+    @garden = Garden.find(params[:garden_url_id]) if params[:garden_url_id]
   end
 
   def create
-    if params[:garden_id].present?
+    if params[:garden_url_id].present?
       garden = Garden.find(params[:garden_id])
       garden.plants.create(plant_params)
       redirect_to "/gardens/#{ params[:garden_id] }/plants"
     else
-      plant = Plant.create(plant_params)
+      Plant.create(plant_params)
       redirect_to '/plants'
     end
   end
 
   def edit
-    @plant = Plant.find(params[:id])
   end
 
   def update
-    plant = Plant.find(params[:id])
-    plant.update(plant_params)
+    @plant.update(plant_params)
 
     redirect_to "/plants/#{ params[:id] }"
   end
@@ -41,6 +40,10 @@ class PlantsController < ApplicationController
   private
 
   def plant_params
-    params.require(:plant).permit(:name, :in_season, :age, :garden_id)
+    params.permit(:name, :in_season, :age, :garden_id)
+  end
+
+  def set_plant
+    @plant = Plant.find(params[:id])
   end
 end
