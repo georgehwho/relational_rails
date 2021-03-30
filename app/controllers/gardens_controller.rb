@@ -24,7 +24,7 @@ class GardensController < ApplicationController
   def update
     @garden.update(garden_params)
 
-    redirect_to "/gardens/#{params[:id]}/"
+    redirect_to "/gardens/#{params[:id]}"
   end
 
   private
