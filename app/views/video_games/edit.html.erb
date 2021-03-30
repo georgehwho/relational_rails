@@ -1,0 +1,20 @@
+<h1>Edit: <%= @video_game.name =%> </h1>
+<form action="/video_games/<%= @video_game.id %>" method="post">
+   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+   <input type="hidden" name="_method" value="PATCH" />
+   <input name="video_game[is_live]" type="hidden" value="false" />
+
+  <div class="mb-3">
+    <label for="video_game_name" class="form-label">New Video Game Name</label>
+    <input type="text" name="video_game[name]" class="form-control" id="video_game_name" required>
+
+
+    <label for="max_players" class="form-label">New Max Player Count</label>
+    <input type="number" name="video_game[max_players]" class="form-control" id="max_players" required>
+
+
+    <input type="checkbox" name="video_game[is_live]" class="form-check-input" id="boolean checkbox">
+    <label for="checkbox" class="form-check-label">Is Live?</label>
+  </div>
+   <button type="submit" class="btn btn-primary">Submit</button>
+</form>
