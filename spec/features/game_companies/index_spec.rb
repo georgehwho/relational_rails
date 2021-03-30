@@ -70,4 +70,20 @@ RSpec.describe "game_companies index page", type: :feature do
     click_link "Create Game Company"
     expect(current_path).to eq('/game_companies/new')
   end
+
+  it "can click a button for each company and redirect to a game_company's edit page" do
+    game_company = GameCompany.create!(title: "Bethesda", profitable: true, employees: 60000)
+    video_game_1 = VideoGame.create!(name:        "GTA",
+                                    max_players: 500000,
+                                    is_live:     true,
+                                    game_company_id: game_company.id)
+    video_game_2 = VideoGame.create!(name:        "League of Legends",
+                                    max_players: 2300000,
+                                    is_live:     false,
+                                    game_company_id: game_company.id)
+    visit "/game_companies"
+
+    expect(current_path).to eq('/game_companies')
+
+  end
 end
