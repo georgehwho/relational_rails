@@ -17,7 +17,7 @@ describe 'plants new page', type: :feature do
         fill_in "garden_id", with: garden.id
         click_on "Save"
 
-        expect(current_path).to eq("/gardens/#{garden.id}/plants")
+        expect(current_path).to eq("/plants")
         expect(page).to have_link("new plant")
         expect(page).to have_content("20")
       end
