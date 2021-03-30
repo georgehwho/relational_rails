@@ -14,7 +14,7 @@
     <% @plants.each do |plant| %>
       <tr>
         <th scope="row"><%= plant.id %></th>
-        <td><a href="/plants/<%= plant.id %>"><%= plant.name %></a></td>
+        <td><%= link_to plant.name, "/plants/#{plant.id}" %></td>
         <td><%= plant.in_season %></td>
         <td><%= plant.age %></td>
         <td><%= plant.garden_id %></td>
@@ -24,7 +24,7 @@
 </table>
 
 <% if @garden %>
-<a href="/gardens/<%= @garden.id %>/plants/new">add plant</a>
+<%= link_to "Add Plant", "/gardens/#{@garden.id}/plants/new" %>
 <br>
-<a href="/gardens/<%= @garden.id %>/plants/">sort by alphabet</a>
+<%= link_to "Sort By Alphabet", :sorted => true %>
 <% end %>

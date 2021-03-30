@@ -1,15 +1,5 @@
 <h1>Register Garden</h1>
 
-<form action="/gardens" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <p>Name:</p>
-  <input type="text" name="garden[name]">
-  <br><br>
-  <p>Watered?:</p>
-  <input type="text" name="garden[watered]">
-  <br><br>
-  <p>Max Plant Capacity</p>
-  <input type="number" name="garden[max_plant_capacity]">
-  <br><br>
-  <input type="submit">
-</form>
+<%= render partial: 'form', locals: {
+                                      path: "/gardens",
+                                      method: "post"} %>
