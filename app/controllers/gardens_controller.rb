@@ -28,7 +28,7 @@ class GardensController < ApplicationController
   end
 
   def destroy
-    @garden.plants.destroy
+    @garden.plants.destroy_all
     @garden.destroy
 
     redirect_to "/gardens"
