@@ -37,4 +37,17 @@ describe "gardens index page", type: :feature do
       expect(current_path).to eq("/gardens/#{garden.id}")
     end
   end
+
+  describe 'they can click on the delete button' do
+    it 'redirects to the garden index page' do
+      garden = Garden.create!(name: "Front Lawn", watered: true, max_plant_capacity: 25)
+
+      visit "/gardens"
+
+      expect(current_path).to eq('/gardens')
+      expect(page).to have_link("Delete")
+      click_link "Delete"
+      expect(current_path).to eq("/gardens")
+    end
+  end
 end

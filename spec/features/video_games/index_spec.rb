@@ -98,31 +98,74 @@ RSpec.describe "game_companies index page", type: :feature do
     expect(current_path).to eq("/game_companies/#{game_company.id}/video_games")
   end
 
-  it "can see & click edit button on video_games index and game_company/id/video_games and redirect " do
+  it "can see & click edit button on game_company/id/video_games and redirect " do
     game_company = GameCompany.create!(title: "Bethesda", profitable: true, employees: 60000)
-    game_company_2 = GameCompany.create!(title: "Hollywood", profitable: true, employees: 5000)
     video_game_1 = VideoGame.create!(name:        "GTA",
                                     max_players: 500000,
                                     is_live:     true,
                                     game_company_id: game_company.id)
-    video_game_2 = VideoGame.create!(name:        "League of Legends",
-                                    max_players: 2300000,
-                                    is_live:     false,
-                                    game_company_id: game_company.id)
-    video_game_3 = VideoGame.create!(name:        "L.A",
-                                    max_players: 2300000,
-                                    is_live:     false,
-                                    game_company_id: game_company_2.id)
     visit "/game_companies/#{game_company.id}/video_games"
 
     expect(current_path).to eq("/game_companies/#{game_company.id}/video_games")
     first(:link, 'Edit').click
     expect(current_path).to eq("/video_games/#{video_game_1.id}/edit")
+  end
 
+  it "can see & click edit button on video_games index and redirect " do
+    game_company = GameCompany.create!(title: "Bethesda", profitable: true, employees: 60000)
+    video_game_1 = VideoGame.create!(name:        "GTA",
+                                    max_players: 500000,
+                                    is_live:     true,
+                                    game_company_id: game_company.id)
     visit "/video_games/"
 
     expect(current_path).to eq("/video_games/")
+
     first(:link, 'Edit').click
     expect(current_path).to eq("/video_games/#{video_game_1.id}/edit")
+  end
+
+  it "can see & click delete button on video_games index and redirect" do
+    game_company = GameCompany.create!(title: "Bethesda", profitable: true, employees: 60000)
+    video_game_1 = VideoGame.create!(name:        "GTA",
+                                    max_players: 500000,
+                                    is_live:     true,
+                                    game_company_id: game_company.id)
+    video_game_2 = VideoGame.create!(name:        "GTA",
+                                    max_players: 500000,
+                                    is_live:     true,
+                                    game_company_id: game_company.id)
+    video_game_3 = VideoGame.create!(name:        "GTA",
+                                    max_players: 500000,
+                                    is_live:     true,
+                                    game_company_id: game_company.id)
+    visit "/video_games/"
+
+    expect(current_path).to eq("/video_games/")
+
+    first(:link, 'Delete').click
+    expect(current_path).to eq("/video_games")
+  end
+
+  it "can see max_player form text field, input data, and press submit" do
+    game_company = GameCompany.create!(title: "Bethesda", profitable: true, employees: 60000)
+    video_game_1 = VideoGame.create!(name:        "GTA",
+                                    max_players: 500000,
+                                    is_live:     true,
+                                    game_company_id: game_company.id)
+    video_game_2 = VideoGame.create!(name:        "GTA",
+                                    max_players: 500000,
+                                    is_live:     true,
+                                    game_company_id: game_company.id)
+    video_game_3 = VideoGame.create!(name:        "GTA",
+                                    max_players: 500000,
+                                    is_live:     true,
+                                    game_company_id: game_company.id)
+    visit "/game_companies/#{game_company.id}/video_games"
+
+    expect(current_path).to eq("/game_companies/#{game_company.id}/video_games")
+    fill_in('Max players', with: 1)
+    expect(page).to have_button("submit")
+    click_button "submit"
   end
 end
