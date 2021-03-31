@@ -10,12 +10,14 @@ Rails.application.routes.draw do
   get '/game_companies/:id/video_games', to: 'video_games#index'
   get '/game_companies/:id/video_games/new', to: 'video_games#new'
   patch '/game_companies/:id', to: 'game_companies#update'
+  delete "/game_companies/:id", to: 'game_companies#destroy'
 
   get '/video_games', to: 'video_games#index'
   get '/video_games/:id', to: 'video_games#show'
   get '/video_games/:id/edit', to: 'video_games#edit'
   post '/game_companies/:id/video_games', to: 'video_games#create'
   patch '/video_games/:id', to: 'video_games#update'
+  delete "/video_games/:id", to: 'video_games#destroy'
 
   get '/gardens', to: 'gardens#index'
   get '/gardens/new', to: 'gardens#new'
