@@ -2,7 +2,7 @@ class GardensController < ApplicationController
   before_action :set_garden, only: [:show, :edit, :update, :destroy]
 
   def index
-    @gardens = Garden.all
+    @gardens = Garden.sort_by_creation_time
   end
 
   def new
