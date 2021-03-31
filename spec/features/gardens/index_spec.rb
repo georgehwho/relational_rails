@@ -46,7 +46,8 @@ describe "gardens index page", type: :feature do
 
       expect(current_path).to eq('/gardens')
       expect(page).to have_link("Delete")
-      click_link "Delete"
+      first(:link, "Delete").click
+
       expect(current_path).to eq("/gardens")
     end
   end
