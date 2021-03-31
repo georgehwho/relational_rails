@@ -64,6 +64,14 @@ describe "gardens plants page", type: :feature do
           expect(current_path).to eq("/gardens/#{@garden.id}/plants")
         end
       end
+      describe 'they input a number in the form' do
+        it 'updates the page to only show plants over the inputted age' do
+          fill_in "number", with: "3"
+          click_on "submit"
+
+          expect(current_path).to eq("/gardens/#{@garden.id}/plants")
+        end
+      end
     end
   end
 end
