@@ -6,4 +6,8 @@ class Plant < ApplicationRecord
   def self.age_over(arg)
     where("age > ?", arg)
   end
+
+  def self.alphabetize
+    order('lower(name)')
+  end
 end
