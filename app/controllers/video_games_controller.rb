@@ -5,6 +5,8 @@ class VideoGamesController < ApplicationController
       @video_games = @game_company.video_games
       if params[:order] == "true"
         @video_games = @game_company.video_games.order('LOWER(name)')
+      elsif params[:max_players]
+        @video_games = VideoGame.limit_max_players(params[:max_players])
       else
         @video_games = @game_company.video_games
       end
@@ -46,5 +48,12 @@ class VideoGamesController < ApplicationController
                   is_live: params[:video_game][:is_live])
 
     redirect_to "/video_games/#{params[:id]}"
+  end
+
+  def destroy
+    @video_game = VideoGame.find(params[:id])
+    @video_game.destroy
+
+    redirect_to '/video_games'
   end
 end

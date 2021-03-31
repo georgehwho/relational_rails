@@ -54,4 +54,22 @@ RSpec.describe "game_companies show page", type: :feature do
     click_link "Edit"
     expect(current_path).to eq("/game_companies/#{game_company.id}/edit")
   end
+
+  it "can click delete button and redirect to game_company index" do
+    game_company = GameCompany.create!(title: "Bethesda", profitable: true, employees: 60000)
+    video_game_1 = VideoGame.create!(name:        "GTA",
+                                    max_players: 500000,
+                                    is_live:     true,
+                                    game_company_id: game_company.id)
+    video_game_2 = VideoGame.create!(name:        "League of Legends",
+                                    max_players: 2300000,
+                                    is_live:     false,
+                                    game_company_id: game_company.id)
+    visit "/game_companies/#{game_company.id}"
+
+    expect(current_path).to eq("/game_companies/#{game_company.id}")
+    expect(page).to have_link("Delete")
+    click_link "Delete"
+    expect(current_path).to eq("/game_companies")
+  end
 end

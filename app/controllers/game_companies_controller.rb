@@ -33,4 +33,12 @@ class GameCompaniesController < ApplicationController
 
     redirect_to "/game_companies/#{params[:id]}/"
   end
+
+  def destroy
+    @game_company = GameCompany.find(params[:id])
+    @game_company.video_games.destroy_all
+    @game_company.destroy
+
+    redirect_to "/game_companies"
+  end
 end

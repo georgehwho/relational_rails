@@ -6,5 +6,8 @@
     <a class="btn btn-warning" name="Edit" id="Edit" href="/game_companies/<%= company.id %>/edit" role="button">Edit</a>
     <a href="/game_companies/<%= company.id %>"><%= company.title %></a>
     : created <%= time_ago_in_words(company.created_at) %> ago
+    <%= link_to "Delete", "/game_companies/#{company.id}", method: :delete, data: {confirm: "Really delete #{company.title}?"} %>
   </h2>
+
+
 <% end %>

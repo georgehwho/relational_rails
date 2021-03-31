@@ -10,3 +10,4 @@
     <p>Number of Players: <%= @video_game.max_players %></p>
   </div>
 </div>
+<%= link_to "Delete", "/video_games/#{@video_game.id}", method: :delete, data: {confirm: "Really delete #{@video_game.name}?"} %>

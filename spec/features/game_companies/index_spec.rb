@@ -32,7 +32,7 @@ RSpec.describe "game_companies index page", type: :feature do
 
     expect(current_path).to eq('/game_companies')
     expect(page).to have_link("#{game_company.title}")
-    click_link "#{game_company.title}"
+    first(:link, "#{game_company.title}").click
     expect(current_path).to eq("/game_companies/#{game_company.id}")
   end
 
@@ -86,5 +86,22 @@ RSpec.describe "game_companies index page", type: :feature do
     expect(current_path).to eq('/game_companies')
     first(:link, 'Edit').click
     expect(current_path).to eq("/game_companies/#{game_company.id}/edit")
+  end
+
+  it "can click delete and redirect to game_company index page" do
+    game_company = GameCompany.create!(title: "Bethesda", profitable: true, employees: 60000)
+    video_game_1 = VideoGame.create!(name:        "GTA",
+                                    max_players: 500000,
+                                    is_live:     true,
+                                    game_company_id: game_company.id)
+    video_game_2 = VideoGame.create!(name:        "League of Legends",
+                                    max_players: 2300000,
+                                    is_live:     false,
+                                    game_company_id: game_company.id)
+    visit "/game_companies"
+
+    expect(current_path).to eq('/game_companies')
+    first(:link, 'Delete').click
+    expect(current_path).to eq("/game_companies")
   end
 end
