@@ -1,10 +1,11 @@
 class PlantsController < ApplicationController
-  before_action :set_plant, only: [:show, :edit, :update]
+  before_action :set_plant, only: [:show, :edit, :update, :destroy]
 
   def index
     if params[:garden_id]
       @garden = Garden.find(params[:garden_id])
       params[:sorted] == "true" ? @plants = @garden.plants.order('LOWER(name)') : @plants = @garden.plants
+      params[:number] ? @plants = @garden.plants.where("age > #{params[:number]}") : @plants = @garden.plants
     else
       @plants = Plant.where(in_season: true)
     end
@@ -35,6 +36,12 @@ class PlantsController < ApplicationController
     @plant.update(plant_params)
 
     redirect_to "/plants/#{ params[:id] }"
+  end
+
+  def destroy
+    @plant.destroy
+
+    redirect_to '/plants'
   end
 
   private

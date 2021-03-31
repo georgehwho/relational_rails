@@ -5,3 +5,5 @@
 <p>garden_id: <%= @plant.garden_id %></p>
 
 <%= link_to "Edit Plant", "/plants/#{@plant.id}/edit" %>
+<br>
+<%= link_to "Delete", "/plants/#{@plant.id}", method: :delete, data: {confirm: "Really delete the plant?"} %>

@@ -6,3 +6,6 @@
 <p>Number of plants: <%= @garden.plants.size %></p>
 <br>
 <%= link_to  "Edit", "/gardens/#{@garden.id}/edit" %>
+<br>
+<%= link_to "Delete", "/gardens/#{@garden.id}", method: :delete, data: {confirm: "Really delete the garden?"} %>
+

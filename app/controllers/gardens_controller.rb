@@ -1,5 +1,5 @@
 class GardensController < ApplicationController
-  before_action :set_garden, only: [:show, :edit, :update]
+  before_action :set_garden, only: [:show, :edit, :update, :destroy]
 
   def index
     @gardens = Garden.all
@@ -25,6 +25,13 @@ class GardensController < ApplicationController
     @garden.update(garden_params)
 
     redirect_to "/gardens/#{params[:id]}"
+  end
+
+  def destroy
+    @garden.plants.destroy
+    @garden.destroy
+
+    redirect_to "/gardens"
   end
 
   private
