@@ -4,8 +4,13 @@ class PlantsController < ApplicationController
   def index
     if params[:garden_id]
       @garden = Garden.find(params[:garden_id])
-      params[:sorted] == "true" ? @plants = @garden.plants.order('LOWER(name)') : @plants = @garden.plants
-      params[:number] ? @plants = @garden.plants.where("age > #{params[:number]}") : @plants = @garden.plants
+      if params[:sorted] == "true"
+        @plants = @garden.plants.alphabetize
+      elsif params[:number]
+        @plants = @garden.plants.age_over(params[:number])
+      else
+        @plants = @garden.plants
+      end
     else
       @plants = Plant.where(in_season: true)
     end

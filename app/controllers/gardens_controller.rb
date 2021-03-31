@@ -2,7 +2,7 @@ class GardensController < ApplicationController
   before_action :set_garden, only: [:show, :edit, :update, :destroy]
 
   def index
-    @gardens = Garden.all
+    @gardens = Garden.sort_by_creation_time
   end
 
   def new
@@ -28,7 +28,6 @@ class GardensController < ApplicationController
   end
 
   def destroy
-    @garden.plants.destroy_all
     @garden.destroy
 
     redirect_to "/gardens"
