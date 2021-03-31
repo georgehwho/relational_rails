@@ -3,8 +3,18 @@
   <h1> <a class="btn btn-success" name="New" id="New" href="/game_companies/<%= @game_company.id %>/video_games/new" role="button">Add New Video Game to this Company </a>
   </h1>
   <% elsif @game_company %>
-
   <h1>  <%= @game_company.title %> Video Games:</h1>
+
+  <%= form_with url: "/game_companies/#{@game_company.id}/video_games", method: "get", local: true do |f| %>
+    <p>
+      <%= f.label :max_players %><br />
+      <%= f.number_field :max_players %>
+    </p>
+    <p>
+      <%= f.submit "submit" %>
+    </p>
+  <% end %>
+
   <h1> <a class="btn btn-success" name="New" id="New" href="/game_companies/<%= @game_company.id %>/video_games/new" role="button">Add New Video Game to this Company </a>
   </h1>
   <% else %>
@@ -12,23 +22,23 @@
 <% end %>
 
 <br>
+    <% @video_games.each do |game| %>
+      <h2><%= game.name %> <a class="btn btn-warning" name="Edit" id="Edit" href="/video_games/<%= game.id %>/edit" role="button">Edit</a> </h2>
+      <p>
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+          Details
+        </a>
+      </p>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          <p>Max Player Capacity: <%= game.max_players %></p>
+          <p>Server is live?: <%= game.is_live %></p>
+        </div>
+      </div>
+    <% end %>
 
 
 
-<% @video_games.each do |game| %>
-  <h2><%= game.name %> <a class="btn btn-warning" name="Edit" id="Edit" href="/video_games/<%= game.id %>/edit" role="button">Edit</a> </h2>
-  <p>
-    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-      Details
-    </a>
-  </p>
-  <div class="collapse" id="collapseExample">
-    <div class="card card-body">
-      <p>Max Player Capacity: <%= game.max_players %></p>
-      <p>Server is live?: <%= game.is_live %></p>
-    </div>
-  </div>
-<% end %>
 
 <input name="alphabetize" type="hidden" value="false" />
 

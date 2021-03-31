@@ -5,6 +5,8 @@ class VideoGamesController < ApplicationController
       @video_games = @game_company.video_games
       if params[:order] == "true"
         @video_games = @game_company.video_games.order('LOWER(name)')
+      elsif params[:max_players]
+        @video_games = VideoGame.limit_max_players(params[:max_players])
       else
         @video_games = @game_company.video_games
       end
