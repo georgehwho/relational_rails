@@ -18,6 +18,7 @@
     <p>Profitable?: <%= @game_company.profitable %></p>
     <p>Number of Employees: <%= @game_company.employees %></p>
     <p>Games Under this Company: <%= @game_company.video_games.size %></p>
-    
   </div>
 </div>
+
+<%= link_to "Delete", "/game_companies/#{@game_company.id}", method: :delete, data: {confirm: "Really delete #{@game_company.title}?"} %>

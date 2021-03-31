@@ -23,7 +23,9 @@
 
 <br>
     <% @video_games.each do |game| %>
-      <h2><%= game.name %> <a class="btn btn-warning" name="Edit" id="Edit" href="/video_games/<%= game.id %>/edit" role="button">Edit</a> </h2>
+      <h2><%= game.name %> <a class="btn btn-warning" name="Edit" id="Edit" href="/video_games/<%= game.id %>/edit" role="button">Edit</a>
+        <%= link_to "Delete", "/video_games/#{game.id}", method: :delete, data: {confirm: "Really delete #{game.name}?"} %>
+      </h2>
       <p>
         <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
           Details
