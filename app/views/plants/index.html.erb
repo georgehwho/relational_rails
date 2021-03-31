@@ -17,7 +17,7 @@
         <td>
           <%= link_to plant.name, "/plants/#{plant.id}" %>
           <%= link_to "Edit", "/plants/#{plant.id}/edit" %>
-          <%= link_to "Delete", "/plants/#{@plant.id}", method: :delete, data: {confirm: "Really delete the plant?"} %>
+          <%= link_to "Delete", "/plants/#{plant.id}", method: :delete, data: {confirm: "Really delete the plant?"} %>
         </td>
         <td><%= plant.in_season %></td>
         <td><%= plant.age %></td>
@@ -31,4 +31,14 @@
 <%= link_to "Add Plant", "/gardens/#{@garden.id}/plants/new" %>
 <br>
 <%= link_to "Sort By Alphabet", :sorted => true %>
+<br>
+<%= form_with url: "/gardens/#{@garden.id}/plants", method: "get", local: true do |f| %>
+  <p>
+    <%= f.label :number %><br />
+    <%= f.number_field :number %>
+  </p>
+  <p>
+    <%= f.submit "submit" %>
+  </p>
+<% end %>
 <% end %>

@@ -15,7 +15,7 @@
         <td>
           <%= link_to garden.name, "/gardens/#{garden.id}" %>
           <%= link_to "Edit", "/gardens/#{garden.id}/edit" %>
-          <%= link_to "Delete", "/plants/#{@plant.id}", method: :delete, data: {confirm: "Really delete the plant?"} %>
+          <%= link_to "Delete", "/gardens/#{garden.id}", method: :delete, data: {confirm: "Really delete the plant?"} %>
         </td>
         <td><%= garden.created_at %></td>
       </tr>
